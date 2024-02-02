@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import About from "./About";
 import Products from "./Products";
 import Contact from "./Contact";
-import SingleProduct from "./SingleProduct";
+// import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
 import ErrorPage from "./Errorpage";
 import Header from "./components/Header";
@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/products" element={<Products />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          {/* <Route path="/singleproduct/:id" element={<SingleProduct />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

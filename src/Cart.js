@@ -2,6 +2,7 @@ import React from "react";
 import { addCart, delCart } from "./redux/action";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { BiSolidPlusCircle, BiSolidMinusCircle } from "react-icons/bi";
 
 const Cart = () => {
   const state = useSelector((state) => state.handleCart);
@@ -42,48 +43,55 @@ const Cart = () => {
     return (
       <>
         <h1 className="text-center">Cart</h1>
-        <div className="d-flex flex-row  justify-content-around">
-          <div className="col-md-8">
+        <div className="d-flex flex-row   ">
+          <div className="col-md-8 ">
             <h3 className="item mx-5">Item List</h3>
 
-            {state.map((item) => {
-              const { id, name, image } = item;
+            {state.map((product) => {
+              const { id, name, image, qty, title, price } = product;
               return (
                 <>
-                  <div className="card d-flex flex-row  mx-5" key={id}>
-                    <div
-                      className="bg-image rounded"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src={image}
-                        // className="w-100"
-                        alt={name}
-                        width={100}
-                        height={75}
-                      />
+                  <div
+                    className="card row d-flex flex-row  mx-5 my-2 "
+                    key={id}
+                  >
+                    <div className="d-flex col  align-items-center">
+                      <div
+                        className="bg-image rounded flex-column mx-5"
+                        data-mdb-ripple-color="light"
+                      >
+                        <img src={image} alt={name} width={100} height={75} />
+                      </div>
+                      <div className="column col-md-4 align-items-center">
+                        <p>{title}</p>
+                      </div>
+                      <div className="mx-5">${price}</div>
                     </div>
-                    <div className="d-flex column">
+
+                    <div className="d-flex col ">
                       <button
                         className="btn px-3"
                         onClick={() => {
-                          removeItem(item);
+                          removeItem(product);
                         }}
                       >
-                        <i className="fas fa-minus">-</i>
+                        <BiSolidMinusCircle />
                       </button>
-
-                      <p className="mx-5">{item.qty}</p>
-                      <p>{item.name}</p>
+                      <div className="d-flex align-items-center">
+                        <p className="mx-5 ">{qty}</p>
+                      </div>
 
                       <button
                         className="btn px-3"
                         onClick={() => {
-                          addItem(item);
+                          addItem(product);
                         }}
                       >
-                        <i className="fas fa-plus">+</i>
+                        <BiSolidPlusCircle />
                       </button>
+                      <div className="d-flex align-items-center px-5">
+                        ${price * qty}
+                      </div>
                     </div>
                   </div>
                 </>

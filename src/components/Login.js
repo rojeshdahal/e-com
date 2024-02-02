@@ -15,19 +15,19 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // For practice, check if the email and password match a predefined user
-    if (
-      formData.email === "user@example.com" &&
-      formData.password === "password"
-    ) {
-      alert("Login successful!");
-      // Perform user authentication and redirection in a real application
-    } else {
-      alert("Login failed. Invalid credentials.");
-    }
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // For practice, check if the email and password match a predefined user
+  //   if (
+  //     formData.email === "user@example.com" &&
+  //     formData.password === "password"
+  //   ) {
+  //     alert("Login successful!");
+  //     // Perform user authentication and redirection in a real application
+  //   } else {
+  //     alert("Login failed. Invalid credentials.");
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -40,7 +40,7 @@ const Login = () => {
                 Don't have an account?{" "}
                 <NavLink to="/register">Create new one</NavLink>
               </h5>
-              <form onSubmit={handleSubmit}>
+              <form>
                 <div className="mb-3 mt-3">
                   <label className="mb-1">
                     Enter Email <sup>*</sup>

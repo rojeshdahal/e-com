@@ -61,7 +61,6 @@ export default function ButtonAppBar() {
                 <IconButton>
                   <IoIosLogIn />
                   <h5>Login</h5>
-                  {/* <Button color="inherit">Login</Button> */}
                 </IconButton>
               </NavLink>
             </Button>
